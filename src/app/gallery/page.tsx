@@ -25,48 +25,77 @@ const categories = ["All", "Gen-Z", "3D", "Photorealistic", "Anime", "Fantasy", 
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredItems = galleryItems.filter(item => 
+    activeCategory === "All" || item.category === activeCategory
+  );
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden px-6 bg-white">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-banana/5 blur-[100px] rounded-full -z-10" />
+      
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <header className="mb-24 space-y-6 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-banana/10 text-yellow-700 text-xs font-bold uppercase tracking-wider mb-2 border border-banana/20">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-banana/10 text-yellow-700 text-[10px] font-black uppercase tracking-widest mb-2 border border-banana/20">
             Aesthetic Archive
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight">
+          <h1 className="text-5xl md:text-8xl font-black text-gray-900 tracking-[0.9] tracking-tighter">
             Infinite <span className="text-yellow-600">Inspiration</span>
           </h1>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            A curated exhibit of breathtaking AI art pieces, showcasing the boundless potential of human-AI collaboration.
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium">
+            Explore our curated exhibit of breathtaking AI art pieces, showcasing the boundless potential of human-AI collaboration.
           </p>
         </header>
 
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center gap-2 mb-20">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={cn(
+                "px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all",
+                activeCategory === cat 
+                ? "bg-gray-900 text-white shadow-xl scale-105" 
+                : "bg-gray-50 text-gray-400 hover:text-gray-900 border border-black/5 shadow-sm"
+              )}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Gallery Grid - 4 Columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {galleryItems.map((item, index) => (
-            <motion.div
-              key={item.src}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              onClick={() => setSelectedImage(item)}
-              className="relative group cursor-pointer overflow-hidden rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-500 bg-gray-50 border border-black/5 aspect-[4/5]"
-            >
-              <img 
-                src={item.src} 
-                alt={item.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end text-white p-8 text-center pb-10">
-                 <div className="p-3 bg-banana rounded-full mb-4 text-gray-900 scale-0 group-hover:scale-100 transition-transform duration-500">
-                    <Maximize2 size={24} />
-                 </div>
-                 <h3 className="text-xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.title}</h3>
-                 <p className="text-sm text-banana font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">{item.category}</p>
-              </div>
-            </motion.div>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.src}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => setSelectedImage(item)}
+                className="relative group cursor-pointer overflow-hidden rounded-[48px] shadow-sm hover:shadow-2xl transition-all duration-700 bg-gray-50 border border-black/5 aspect-[4/5]"
+              >
+                <img 
+                  src={item.src} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end text-white p-8 text-center pb-12">
+                   <div className="w-14 h-14 bg-banana rounded-full mb-6 text-gray-900 scale-0 group-hover:scale-100 transition-transform duration-500 flex items-center justify-center shadow-2xl">
+                      <Maximize2 size={28} />
+                   </div>
+                   <h3 className="text-2xl font-black translate-y-4 group-hover:translate-y-0 transition-transform duration-500 leading-tight">{item.title}</h3>
+                   <p className="text-xs text-banana font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 mt-2">{item.category}</p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
 

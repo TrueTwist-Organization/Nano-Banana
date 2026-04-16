@@ -4,6 +4,7 @@ import WhyThisPlatform from "@/components/home/WhyThisPlatform";
 import ComparisonSection from "@/components/home/ComparisonSection";
 import TutorialPreview from "@/components/home/TutorialPreview";
 import GalleryPreview from "@/components/home/GalleryPreview";
+import BlogPreview from "@/components/home/BlogPreview";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ComparisonSection />
       <TutorialPreview />
       <GalleryPreview />
+      <BlogPreview />
       
       {/* Community / Showcase Section (Inline for now) */}
       <section className="py-24 px-6 bg-[#030712] border-t border-white/5 overflow-hidden">
