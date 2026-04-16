@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-purple: #9333ea;
+  --color-blue: #2563eb;
+  --color-pink: #db2777;
+  --color-banana: #FACD12;
+  --color-glass: rgba(0, 0, 0, 0.03);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: var(--color-glass);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--color-glass-border);
+  }
+  
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #FACD12, #F59E0B, #D97706);
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  
+  .glow-border {
+    position: relative;
+  }
+  
+  .glow-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(to right, var(--color-banana), #F59E0B);
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0.3;
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+  }
+}
+
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FACD12 rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FACD12;
+  border-radius: 10px;
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3B82F6 rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 10px;
+}
+

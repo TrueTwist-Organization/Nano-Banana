@@ -1,0 +1,121 @@
+export const prompts = [
+  {
+    id: 1,
+    title: "The Smash Burger",
+    category: "Architecture",
+    image: "/images/prompts/burger.png",
+    text: "[DISH] as a hyper-detailed architect's scale model. Every ingredient in miniature — but built to make you hungry, not just precise. Sauces as warm poured resin still appearing to move. Proteins in richly grained timber reading as perfectly cooked. Crusts in toasted balsa with real char. Colours at full warmth and saturation. Scale figures for proportion.",
+  },
+  {
+    id: 2,
+    title: "POV Pursuit",
+    category: "Action",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200",
+    text: "First-person perspective inside a rugged post-apocalyptic vehicle chasing a heavily armored enemy car speeding ahead through a ruined industrial city. Massive explosions erupt across the road. The driver's hands grip the steering wheel tightly. Windshield shakes violently. Motion blur is intense.",
+  },
+  {
+    id: 3,
+    title: "Cockpit Crisis",
+    category: "Sci-Fi",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200",
+    text: "POV dashboard view, hands on futuristic steering wheel, glowing digital interfaces, red warning lights flashing, windshield cracked with reflections of a neon city, rapid forward acceleration, hyper-realistic smartphone look, natural grain, authentic dynamic range.",
+  },
+  {
+    id: 4,
+    title: "Neon Ronin",
+    category: "Anime",
+    image: "/images/gallery/samurai.png",
+    text: "Ultra-detailed cyberpunk samurai standing on a skyscraper ledge, rain dripping from neon armor, vibrant yellow katanas glowing, cinematic lighting, 8k resolution, extreme detail in texture and reflection.",
+  },
+  {
+    id: 5,
+    title: "Bento Universe",
+    category: "3D",
+    image: "/images/gallery/bento.png",
+    text: "Isometric 3D bento-style miniature room, gaming setup with yellow glow, pastel aesthetic, soft clay-like textures, minimalist design, high-quality Octane render, 8k resolution, trendy workspace visualization.",
+  },
+  {
+    id: 6,
+    title: "Cyber Kicks",
+    category: "Gen-Z",
+    image: "/images/gallery/sneakers.png",
+    text: "Hyper-realistic 3D render of futuristic holographic sneakers, glowing yellow accents, transparent materials, floating in a clean white space, studio lighting, product photography style, ultra-detailed textures.",
+  },
+  {
+    id: 7,
+    title: "Golden Essence",
+    category: "Portrait",
+    image: "/images/gallery/portrait.png",
+    text: "Cinematic portrait of a futuristic being, golden fractals across the face, radiant yellow eyes, soft subsurface scattering, elegant lighting, hyper-detailed skin pores, professional portrait setup.",
+  },
+  {
+    id: 8,
+    title: "Dreamy Clouds",
+    category: "Fantasy",
+    image: "/images/gallery/landscape.png",
+    text: "Ethereal landscape with floating islands, golden waterfalls at sunset, mystical purple sky, volumetric lighting, dreamlike atmosphere, high-fantasy art style, wide-angle cinematic shot.",
+  },
+];
+
+export const tutorials = [
+  {
+    id: 1,
+    title: "Mastering Lighting in Midjourney",
+    description: "Learn how to use cinematic lighting parameters to transform your AI generations from flat to photorealistic.",
+    level: "Intermediate",
+    thumbnail: "/images/lighting.png",
+  },
+  {
+    id: 2,
+    title: "Advanced Prompt Weighting",
+    description: "Discover the secret of multi-prompts and weighting values to control every detail of your creative output.",
+    level: "Advanced",
+    thumbnail: "/images/weighting.png",
+  },
+  {
+    id: 3,
+    title: "Cinematic AI Video Mastery",
+    description: "From prompt-to-video to character consistency across scenes. Learn to build movies with AI.",
+    level: "Pro",
+    thumbnail: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800",
+  },
+];
+
+export const videos = [
+  {
+    id: 1,
+    title: "The Golden Android",
+    description: "A hyper-realistic cinematic close-up of an AI ocular system, exploring the fine line between biology and machinery. 8K Master quality.",
+    duration: "0:15",
+    thumbnail: "/images/videos/eye.png",
+    videoUrl: "https://res.cloudinary.com/demo/video/upload/so_0,eo_10/dog.mp4",
+    category: "Macro",
+  },
+  {
+    id: 2,
+    title: "Liquid Gold Metamorphosis",
+    description: "Witness the fluid transition of abstract shapes into crystalline geometry. An experiment in AI-driven material simulation.",
+    duration: "0:12",
+    thumbnail: "/images/videos/liquid_gold.png",
+    videoUrl: "https://res.cloudinary.com/demo/video/upload/so_5,eo_15/elephants_dream.mp4",
+    category: "Abstract",
+  },
+  {
+    id: 3,
+    title: "Cyber-City Hyperlapse",
+    description: "A visceral journey through a neon-drenched metropolis. High street photography style with AI temporal consistency.",
+    duration: "0:10",
+    thumbnail: "/images/videos/chase.png",
+    videoUrl: "https://res.cloudinary.com/demo/video/upload/so_0,eo_8/sea_turtle.mp4",
+    category: "Action",
+  },
+  {
+    id: 4,
+    title: "Galactic Outpost 7",
+    description: "Atmospheric shots of a space station orbiting a ringed giant. Pushing the limits of AI environmental scale.",
+    duration: "0:25",
+    thumbnail: "/images/videos/space.png",
+    videoUrl: "https://res.cloudinary.com/demo/video/upload/so_10,eo_30/snow_deer.mp4",
+    category: "Sci-Fi",
+  },
+];
