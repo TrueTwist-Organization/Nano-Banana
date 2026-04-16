@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground selection:bg-banana selection:text-black`}>
+        <div className="noise" />
         {/* Scroll Progress Bar */}
         <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-banana via-yellow-500 to-orange-500 z-[60]" />
         
