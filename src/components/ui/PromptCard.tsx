@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Copy, Check, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface PromptCardProps {
+  id: number;
   title: string;
   category: string;
   image: string;
   text: string;
 }
 
-export default function PromptCard({ title, category, image, text }: PromptCardProps) {
+export default function PromptCard({ id, title, category, image, text }: PromptCardProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -50,9 +52,12 @@ export default function PromptCard({ title, category, image, text }: PromptCardP
            >
              {copied ? <Check size={20} /> : <Copy size={20} />}
            </button>
-           <button className="p-4 bg-gray-900/40 backdrop-blur-md text-white rounded-full hover:bg-gray-900 transition-colors shadow-2xl">
+           <Link 
+             href={`/generate?promptId=${id}`}
+             className="p-4 bg-gray-900/40 backdrop-blur-md text-white rounded-full hover:bg-gray-900 transition-colors shadow-2xl"
+           >
              <ExternalLink size={20} />
-           </button>
+           </Link>
         </div>
       </div>
 
@@ -65,7 +70,12 @@ export default function PromptCard({ title, category, image, text }: PromptCardP
           {text}
         </p>
         <div className="pt-4 flex items-center justify-between border-t border-gray-100">
-           <span className="text-xs font-medium text-gray-400">v4.0 Prompt</span>
+           <Link 
+             href={`/generate?promptId=${id}`}
+             className="text-xs font-black text-gray-900 hover:text-yellow-600 transition-colors uppercase tracking-widest"
+           >
+             Use Prompt
+           </Link>
            <button 
              onClick={handleCopy}
              className="text-xs font-bold text-yellow-600 hover:text-gray-900 hover:underline flex items-center gap-1 transition-colors"

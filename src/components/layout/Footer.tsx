@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Send, Code, Globe, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,12 +16,6 @@ export default function Footer() {
           <p className="text-gray-500 leading-relaxed text-sm">
             Curating the finest AI prompts for image generation, high-end 3D art, and cinematic masterpieces.
           </p>
-          <div className="flex items-center gap-4 text-gray-400 pt-4">
-            <Link href="#" className="hover:text-yellow-600 transition-colors"><Send size={20} /></Link>
-            <Link href="#" className="hover:text-yellow-600 transition-colors"><Code size={20} /></Link>
-            <Link href="#" className="hover:text-yellow-600 transition-colors"><Globe size={20} /></Link>
-            <Link href="#" className="hover:text-yellow-600 transition-colors"><MessageCircle size={20} /></Link>
-          </div>
         </div>
 
         {/* Links Grid */}
@@ -59,9 +52,7 @@ export default function Footer() {
         <p className="text-sm text-gray-500">
           © 2026 Nano Banana Prompt. All rights reserved.
         </p>
-        <p className="text-xs text-gray-400">
-          Built with Next.js, Framer Motion, and AI expertise.
-        </p>
+
       </div>
     </footer>
   );

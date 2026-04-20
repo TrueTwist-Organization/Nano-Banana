@@ -21,15 +21,8 @@ const galleryItems = [
 ];
 
 
-const categories = ["All", "Gen-Z", "3D", "Photorealistic", "Anime", "Fantasy", "Abstract", "Architecture"];
-
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredItems = galleryItems.filter(item => 
-    activeCategory === "All" || item.category === activeCategory
-  );
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden px-6 bg-white">
@@ -49,28 +42,10 @@ export default function GalleryPage() {
           </p>
         </header>
 
-        {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-2 mb-20">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={cn(
-                "px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all",
-                activeCategory === cat 
-                ? "bg-gray-900 text-white shadow-xl scale-105" 
-                : "bg-gray-50 text-gray-400 hover:text-gray-900 border border-black/5 shadow-sm"
-              )}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Gallery Grid - 4 Columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
+            {galleryItems.map((item, index) => (
               <motion.div
                 key={item.src}
                 layout
