@@ -1,0 +1,68 @@
+import React from "react";
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="bg-white border-t border-gray-100 pb-12 pt-24 px-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
+        {/* Brand */}
+        <div className="max-w-xs space-y-4">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-banana rounded-lg flex items-center justify-center">
+              <span className="text-gray-900 font-bold text-lg">N</span>
+            </div>
+            <span className="text-xl font-bold text-gray-900">Nano Banana</span>
+          </Link>
+          <p className="text-gray-500 leading-relaxed text-sm">
+            Curating the finest AI prompts for image generation, high-end 3D art, and cinematic masterpieces.
+          </p>
+        </div>
+
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+          <div className="space-y-6">
+            <h4 className="text-gray-900 font-semibold text-base uppercase tracking-widest">Platform</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+              <li><Link href="/prompts" className="hover:text-yellow-600">Prompts</Link></li>
+              <li><Link href="/gallery" className="hover:text-yellow-600">Gallery</Link></li>
+              <li><Link href="/pricing" className="hover:text-yellow-600">Pricing</Link></li>
+              <li><Link href="/tutorials" className="hover:text-yellow-600">Tutorials</Link></li>
+            </ul>
+          </div>
+          <div className="space-y-6">
+            <h4 className="text-gray-900 font-semibold text-base uppercase tracking-widest">Company</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+              <li><Link href="/about" className="hover:text-yellow-600">About</Link></li>
+              <li><Link href="/blog" className="hover:text-yellow-600">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-yellow-600">Contact</Link></li>
+            </ul>
+          </div>
+          <div className="space-y-6 hidden sm:block">
+            <h4 className="text-gray-900 font-semibold text-base uppercase tracking-widest">Legal</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+              <li><Link href="/privacy" className="hover:text-yellow-600">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-yellow-600">Terms of Service</Link></li>
+              <li><Link href="/disclaimer" className="hover:text-yellow-600">Disclaimer</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto pt-12 mt-12 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p className="text-sm text-gray-500">
+          © 2026 Nano Banana Prompt. All rights reserved.
+        </p>
+
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-xs md:text-sm text-gray-400">
+          <p>
+            Designed By <Link href="https://truetwist.in/" target="_blank" className="hover:text-yellow-600 transition-colors duration-300">Trutwist</Link>
+          </p>
+          <p>
+            Marketing By <Link href="https://369network.com/" target="_blank" className="hover:text-yellow-600 transition-colors duration-300">369 Network</Link>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
