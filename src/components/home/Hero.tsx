@@ -4,8 +4,34 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import OneSignal from "react-onesignal";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+
+  const handleExploreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      OneSignal.Notifications.requestPermission()
+        .then(() => {
+          console.log("OneSignal push notification permission requested via Hero button.");
+          router.push("/prompts");
+        })
+        .catch((err) => {
+          console.error("Failed to request push notification permission:", err);
+          alert(
+            "OneSignal Verification:\n\n" + 
+            "The button click is working perfectly! However, OneSignal SDK returned: '" + (err.message || err) + "'.\n\n" +
+            "To test the notification prompt on localhost, please make sure to enable 'Local Testing' under Web Settings in your OneSignal Dashboard, or deploy to your live domain https://nanobananaprompt.monster."
+          );
+          router.push("/prompts");
+        });
+    } else {
+      router.push("/prompts");
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Effects */}
@@ -39,12 +65,13 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <Link
+            <a
               href="/prompts"
-              className="w-full sm:w-auto px-8 py-4 bg-gray-900 text-white rounded-full font-bold text-lg hover:bg-banana hover:text-gray-900 transition-all flex items-center justify-center gap-2 group"
+              onClick={handleExploreClick}
+              className="w-full sm:w-auto px-8 py-4 bg-gray-900 text-white rounded-full font-bold text-lg hover:bg-banana hover:text-gray-900 transition-all flex items-center justify-center gap-2 group cursor-pointer"
             >
               Explore Prompts <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </Link>
+            </a>
             <Link
               href="/gallery"
               className="w-full sm:w-auto px-8 py-4 glass text-gray-900 rounded-full font-bold text-lg hover:bg-black/5 transition-all text-center"
