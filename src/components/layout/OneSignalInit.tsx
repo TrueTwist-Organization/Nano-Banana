@@ -48,7 +48,7 @@ export default function OneSignalInit() {
 
       // Use standard OneSignal initialization
       OneSignal.init({
-        appId: "1cf96c4e-c59e-445d-b297-919d962491b9",
+        appId: "0a3f3b6d-6e02-4e6d-91c0-77ddaca677c7",
         allowLocalhostAsSecureOrigin: true, // Crucial for local development/testing
       })
         .then(() => {
