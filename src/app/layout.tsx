@@ -19,6 +19,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.OneSignalDeferred = window.OneSignalDeferred || [];
+              window.OneSignalDeferred.push(async function(OneSignal) {
+                await OneSignal.init({
+                  appId: "0a3f3b6d-6e02-4c6d-91c0-77ddaca677c7",
+                });
+              });
+            `
+          }}
+        />
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground selection:bg-banana selection:text-black`}>
         <OneSignalInit />
         <div className="noise" />
